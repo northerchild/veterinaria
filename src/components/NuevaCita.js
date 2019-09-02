@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import uuid from 'uuid';
 class NuevaCita extends Component {
     state = {
         cita:{
@@ -27,7 +27,7 @@ class NuevaCita extends Component {
         e.preventDefualt();
 
         //Extraer los valores del state
-        const = {mascota, propietario,fecha, hora, sintomas} = this.state.cita
+        const {mascota, propietario,fecha, hora, sintomas} = this.state.cita
         //Validar que los campos esten llenos
             if(mascota === "" || propietario === "" || fecha === "" || hora ==="" || sintomas === ""){
                 this.setState({
@@ -36,7 +36,12 @@ class NuevaCita extends Component {
                 //Detener la ejecución
                 return;
             }
+
+        //Generar objeto con los datos
+        const nuevaCita = {...this.state.cita};
+        nuevaCita.id = uuid();
         //Agregar la cita al state de App
+        this.props.crearNuevaCita(nuevaCita)
 
     }
 
