@@ -16,6 +16,21 @@ class App extends Component {
         this.setState({citas})
     }
 
+    //Cuando la app carga
+    componentDidMount(){
+        const citals= localStorage.getItem('citas')
+        if(citals){
+            this.setState({
+                citas:JSON.parse(citals)
+            })
+        }
+    }
+
+    //Cuando eliminamos o actualizamos una cita
+    componentDidUpdate(){
+        localStorage.setItem('citas', JSON.stringify(this.state.citas))
+    }
+
     //Eliminar citas del state
 
     eliminarCita = id =>{
