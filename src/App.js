@@ -11,7 +11,7 @@ class App extends Component {
         //Copiar el state actual
             const citas = [...this.state.citas, datos]
         //Agregar el nuevo state
-        
+
         this.setState({citas})
     }
     render() {
