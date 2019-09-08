@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
-
+import PropTypes from 'prop-types'
 const stateInicial = {
     cita:{
         mascota:'',
@@ -134,6 +134,11 @@ render() {
        </div >
    )
 }
+}
+
+
+NuevaCita.propTypes = {
+    crearNuevaCita : PropTypes.func.isRequired
 }
 
 export default NuevaCita;
