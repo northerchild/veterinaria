@@ -21,7 +21,7 @@ class NuevaCita extends Component {
         this.setState({
             cita: {
                 ...this.state.cita,
-                [e.target.name]: e.target.value
+                [e.target.value]: e.target.value
             }
         })
     }
